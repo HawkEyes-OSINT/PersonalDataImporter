@@ -24,7 +24,7 @@ To use the Personal Data Importer program, follow these steps:
 
     bash
 
-git clone <repository_url>
+git clone https://github.com/HawkEyes-OSINT/PersonalDataImporter.git
 
 Install Dependencies: Navigate to the project directory and install the required dependencies by running the following command:
 
