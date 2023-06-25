@@ -1,0 +1,7 @@
+art @ git+https://github.com/sepandhaghighi/art.git
+os
+csv
+unidecode
+sys
+sqlite3
+re
