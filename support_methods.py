@@ -27,7 +27,7 @@ def request_column(table_name):
     """
 
     columns = []
-    to_ignore = []
+    seperators = ''
 
     # isntructions
     column_instuction = f"""
@@ -42,9 +42,8 @@ def request_column(table_name):
         """
     seperator_instruction = """
         If there are multiple values in a row or if rows contain characters that should be ignored,
-        enter the seperation character or to-ignore character with each character seperated by single quotations
-        and seperated by a comma.
-        For example, if a row is formatted as follows, [value, value, value], enter '[',']',','
+        enter the seperation character or to-ignore character with each character.
+        For example, if a row is formatted as follows, [value, value, value], enter [],
         If there are no such characters, click 'enter'.
 
         Enter characters here:
@@ -53,7 +52,7 @@ def request_column(table_name):
     # get column numbers
     columns_list = input(column_instuction)
     if not columns_list:
-        return columns, to_ignore
+        return columns, seperators
     try:
         # check columns and insert into column list
         columns_list = columns_list.split(',')
@@ -69,15 +68,8 @@ def request_column(table_name):
     
     # get seperater characters
     seperators = input(seperator_instruction)
-    try:
-        # check input format
-        seperators = seperators.split(',')
-        [to_ignore.append(seperator.split("\'")[1]) for seperator in seperators if "\'" in seperator]
-    except ValueError:
-        print("Invalid input")
-        return request_column(table_name)
     
-    return columns, to_ignore
+    return columns, seperators
 
 
 def format_title(values):

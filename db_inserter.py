@@ -37,7 +37,7 @@ def insert_data(db_path, csv_path):
         for line in reader:
             for instuction in instructions:
                 # get istructions
-                table, columns, ignore = instuction
+                table, columns, strip_char = instuction
 
                 # get data from csv
                 values = [line[col[0]:col[len(col)-1]+1] for col in columns]
@@ -47,13 +47,20 @@ def insert_data(db_path, csv_path):
                     return
 
                 # format values
-                split_values = []
                 formated_values = []
-                strip_char = ''.join(ignore)
+                tmp_values = []
                 if strip_char != '':
-                    [split_values.extend(re.split(strip_char, value[0])) for value in values]
-                    values = []
-                    [values.append([val]) for val in split_values]
+                    for value in values:
+                        # create sublist
+                        merged = ''
+                        for v in value:
+                            merged += v
+                        value = merged
+                        for char in strip_char:
+                            value = value.replace(char, '')
+                        words = value.split()
+                        [tmp_values.append([word]) for word in words if word]
+                    values = tmp_values
                 for value in values:
                     if table == 'names' or table == 'addresses':
                         formated_values.append(format_title(value))
