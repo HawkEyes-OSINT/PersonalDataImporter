@@ -101,10 +101,8 @@ def format_phone(value):
             phone_number += char
     return phone_number
 
-def detect_csv_delimiter(filename):
-    with open(filename, 'r') as file:
-        sample = file.read(4096)  # Read a sample of the file
-        
-    sniffer = csv.Sniffer()
-    delimiter = sniffer.sniff(sample).delimiter
-    return delimiter
+def detect_csv_delimiter(file_path):
+    with open(file_path, 'r', newline='') as csvfile:
+        first_line = csvfile.readline()
+        dialect = csv.Sniffer().sniff(first_line)
+        return dialect.delimiter

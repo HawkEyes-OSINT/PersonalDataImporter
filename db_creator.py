@@ -64,7 +64,7 @@ def create_db(path, name):
         
         # phones
         cursor.execute("""CREATE TABLE phones (
-                        uid INTEGER PRIMARY KEY,
+                        uid INTEGER,
                         row_value TEXT,
                         source TEXT,
                         FOREIGN KEY (uid) REFERENCES names(uid))
@@ -72,7 +72,7 @@ def create_db(path, name):
         
         # addresses
         cursor.execute("""CREATE TABLE addresses (
-                        uid INTEGER PRIMARY KEY,
+                        uid INTEGER,
                         row_value TEXT,
                         source TEXT,
                         FOREIGN KEY (uid) REFERENCES names(uid))
@@ -80,7 +80,7 @@ def create_db(path, name):
 
         # social media urls
         cursor.execute("""CREATE TABLE sm_urls (
-                        uid INTEGER PRIMARY KEY,
+                        uid INTEGER,
                         row_value TEXT,
                         source TEXT,
                         FOREIGN KEY (uid) REFERENCES names(uid))
