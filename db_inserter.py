@@ -72,6 +72,7 @@ def insert_data(db_path, csv_path):
                         formated_values.append(value[0])
 
                 # insert data to DB
+                print('[-] Inserting data to DB')
                 if table == 'names':
                     cur.execute(qname, (formated_values[0],))
                     name_id = cur.lastrowid
@@ -80,4 +81,5 @@ def insert_data(db_path, csv_path):
 
     conn.commit()
     conn.close()
+    print('[+] Data inserted to DB')
     
