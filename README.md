@@ -1,8 +1,9 @@
-Personal Data Importer
+# Personal Data Importer
 
 Welcome to Personal Data Importer, a program designed to transfer personal user data from CSV files to SQLite databases. This tool allows you to seamlessly import data into SQLite databases with a predefined table structure.
 Supported Tables
 
+## Overview
 The program supports the following tables in the SQLite databases:
 
     names:
@@ -18,29 +19,26 @@ The program supports the following tables in the SQLite databases:
 The names table is required, and the IDs from the other tables will correspond to the ID of the relevant name.
 Getting Started
 
+## Download
 To use the Personal Data Importer program, follow these steps:
 
-    Clone the Repository: Start by cloning the repository to your local machine using the following command:
+Clone the Repository: Start by cloning the repository to your local machine using the following command:
 
-    bash
-
-git clone https://github.com/HawkEyes-OSINT/PersonalDataImporter.git
+    git clone https://github.com/HawkEyes-OSINT/PersonalDataImporter.git
 
 Install Dependencies: Navigate to the project directory and install the required dependencies by running the following command:
 
-pip install -r requirements.txt
+    pip install -r requirements.txt
 
 This will ensure that you have all the necessary packages installed to run the program.
 
 Run the Program: Execute the program by running the following command:
 
-css
-
     python main.py
 
-    This will launch the Personal Data Importer.
+This will launch the Personal Data Importer.
 
-Usage
+## Usage
 
 Upon running the program, you will have two options:
 
@@ -57,3 +55,11 @@ If you encounter any issues or have questions, please don't hesitate to open an 
 Happy data importing with Personal Data Importer!
 
 Note: Make sure you have a backup of your data before performing any database operations.
+
+## Fix Slow Querying
+If you have a large database, it may cause queries to be slow.  To fix this, you can index the tables to speed of the process.  To do this, enter your database and run:
+
+    CREATE INDEX <index_name> ON <table_name> (column1, column2, ...)
+
+## What is Indexing?
+In SQLite, indexing is a mechanism used to improve the performance of database queries by creating a separate data structure that allows for faster data retrieval. It is especially beneficial when dealing with large datasets, as it reduces the need for a full table scan when searching for specific records. By using indexes, SQLite can locate the data more efficiently and speed up query execution.
