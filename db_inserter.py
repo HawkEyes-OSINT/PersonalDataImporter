@@ -31,6 +31,7 @@ def insert_data(db_path, csv_path):
         instructions.append([table, columns, ignore])
 
     # open csv file
+    print('[-] Inserting data to DB')
     with open(csv_path) as file:
         reader = csv.reader(file, delimiter=detect_csv_delimiter(csv_path))
         next(reader) # skip first line
@@ -72,7 +73,6 @@ def insert_data(db_path, csv_path):
                         formated_values.append(value[0])
 
                 # insert data to DB
-                print('[-] Inserting data to DB')
                 if table == 'names':
                     cur.execute(qname, (formated_values[0],))
                     name_id = cur.lastrowid

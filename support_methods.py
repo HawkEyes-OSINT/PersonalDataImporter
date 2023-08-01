@@ -103,6 +103,11 @@ def format_phone(value):
 
 def detect_csv_delimiter(file_path):
     with open(file_path, 'r', newline='') as csvfile:
-        first_line = csvfile.readline()
-        dialect = csv.Sniffer().sniff(first_line)
-        return dialect.delimiter
+        sample_data = csvfile.read(2048)
+        possible_delimiters = ['\t', ';', ',']
+        for delimiter in possible_delimiters:
+            if delimiter in sample_data:
+                return delimiter
+        
+    raise ValueError("Could not detect delimiter")
+            

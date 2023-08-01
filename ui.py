@@ -16,7 +16,7 @@ def start_menu():
     """
 
     # print open screen
-    print(text2art('PersonalDataImporter', font='smslant'))
+    print(text2art('PersonalData\nImporter', font='smslant'))
 
     # print menu options
     print('Welcome to the PersonalDataImporter')
