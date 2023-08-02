@@ -35,7 +35,9 @@ def insert_data(db_path, csv_path):
     with open(csv_path) as file:
         reader = csv.reader(file, delimiter=detect_csv_delimiter(csv_path))
         next(reader) # skip first line
+        line_nm = 0
         for line in reader:
+            line_nm += 1
             try:
                 for instuction in instructions:
                     # get istructions
@@ -80,7 +82,7 @@ def insert_data(db_path, csv_path):
                     else:
                         [cur.execute(qtable.format(table), (name_id, value, source)) for value in formated_values if value]
             except Exception as e:
-                print('[!]', e)
+                print(f'[!] {line_nm}', e)
 
         conn.commit()
         conn.close()
