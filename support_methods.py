@@ -31,29 +31,29 @@ def request_column(table_name):
 
     # isntructions
     column_instuction = f"""
-    Insert the column number for "{table_name}" insertion where the first column is number 0.
+Insert the column number for "{table_name}" insertion where the first column is number 0.
 
-    For multiple columns than write all the column numbers with each number seprated by a comma,
-    Example, if you need to enter columns A, C and D, write: 0,2,3.
+For multiple columns than write all the column numbers with each number seprated by a comma,
+Example, if you need to enter columns A, C and D, write: 0,2,3.
 
-    For columns that need to be merged, seperate the column numbers with a dash.
-    Example, if column A is 'First name' and column B is 'Last name', write 0-1
+For columns that need to be merged, seperate the column numbers with a dash.
+Example, if column A is 'First name' and column B is 'Last name', write 0-1
 
-    If there are no columns for this table, click 'enter'.
+If there are no columns for this table, click 'enter'.
 
-    Enter column numbers here:
+Enter column numbers here:
         """
     seperator_instruction = """
-    If there are multiple values in a row 
-    or if rows contain characters that should be ignored,
-    enter the seperation character or to-ignore character with each character.
-    
-    Example, if a row is formatted as follows, 
-    [value, value, value], enter [],
+If there are multiple values in a row 
+or if rows contain characters that should be ignored,
+enter the seperation character or to-ignore character with each character.
 
-    If there are no such characters, click 'enter'.
+Example, if a row is formatted as follows, 
+[value, value, value], enter [],
 
-    Enter characters here:
+If there are no such characters, click 'enter'.
+
+Enter characters here:
         """
     
     # get column numbers
