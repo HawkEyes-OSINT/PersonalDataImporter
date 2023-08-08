@@ -44,7 +44,11 @@ def insert_data(db_path, csv_path):
                     table, columns, strip_char = instuction
 
                     # get data from csv
-                    values = [line[col[0]:col[len(col)-1]+1] for col in columns]
+                    try:
+                        values = [line[col[0]:col[len(col)-1]+1] for col in columns]
+                    except:
+                        values = []
+                        
                     if table == 'names' and not values:
                         # names is a required table
                         print('Must provide a name value')

@@ -1,1 +1,2 @@
 art @ git+https://github.com/sepandhaghighi/art.git
+unidecode
